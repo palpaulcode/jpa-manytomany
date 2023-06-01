@@ -1,0 +1,39 @@
+#
+#spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+#spring.datasource.url=jdbc:mysql//localhost::3306/javatechie
+#spring.datasource.username=root
+#spring.datasource.password=password
+#spring.jpa.show-sql=true
+#spring.jpa.hibernate.ddl-auto=update
+#spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.MySQL5Dialect
+#server.port=9191
+
+
+# datasource
+# environment variables set at IntelliJ level. Can be set at system level too.
+#  PGDATABASE=<database_name>;PGUSER=<database_username>;PGPASSWORD=<database_user_password>
+#  PGDATABASE=jpadb;PGUSER=jpa;PGPASSWORD=�pa@pp
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5431/${PGDATABASE}
+    username: ${PGUSER}
+    password: ${PGPASSWORD}
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true # show sql with sout
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      show_sql: true # show sql with slf4j
+      hibernate:
+        format_sql: true # show sql pretty
+
+# include error message from exception
+#  server.error.include-message=always
+server:
+  error:
+    include-message: always
+  port: 9191
+# change server port
